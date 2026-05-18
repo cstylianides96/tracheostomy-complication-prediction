@@ -3,8 +3,8 @@ from tqdm import tqdm
 import os
 import numpy as np
 from sklearn.model_selection import StratifiedShuffleSplit
-from utils.icu_preprocess_util import *
-from utils.outlier_removal import *
+from icu_preprocess_util import *
+from outlier_removal import *
 from sklearn.feature_selection import VarianceThreshold, SelectKBest, mutual_info_classif
 from sklearn.experimental import enable_iterative_imputer  # noqa: F401
 from sklearn.impute import SimpleImputer, IterativeImputer
@@ -25,7 +25,7 @@ def icd9_to_icd10(icd_code):
         ICD-10 code (string) or None if no mapping found
     """
     # Load the mapping file
-    mapping_path = './utils/mappings/ICD9_to_ICD10_mapping.txt'
+    mapping_path = 'ICD9_to_ICD10_mapping.txt'
     
     if not hasattr(icd9_to_icd10, 'mapping_dict'):
         # Load mapping only once and cache it

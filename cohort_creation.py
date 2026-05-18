@@ -1,6 +1,6 @@
 import pandas as pd
-from utils.icu_preprocess_util import *
-from utils.outlier_removal import *
+from icu_preprocess_util import *
+from outlier_removal import *
 import os
 
 

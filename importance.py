@@ -16,8 +16,7 @@ def plot_feat_importances(hours_after_trach, model_name, df_name, multilabel):
 
 
     itemids = pd.read_csv('data_raw_mimic2.2/d_items.csv')[['itemid', 'label']]
-    #icd10_codes = pd.read_csv('./utils/mappings/ICD9_to_ICD10_mapping.txt', sep='\t', dtype=str)[['icd10cm', 'diagnosis_description']]
-    icd10_codes = pd.read_csv('./utils/icd10cm_codes_2024.csv', dtype=str)[['icd10_code', 'label']]
+    icd10_codes = pd.read_csv('icd10cm_codes_2024.csv', dtype=str)[['icd10_code', 'label']]
 
     if multilabel:
         importances = np.mean([est.feature_importances_ for est in model.estimators_], axis=0)
