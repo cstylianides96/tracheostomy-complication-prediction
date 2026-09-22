@@ -14,7 +14,7 @@ def compl_status(): # complication status label (binary), cohort includes patien
     print(shared_dataset.head())
     print(shared_dataset.label.value_counts())
 
-    shared_dataset.to_csv('data_processed_12hrs/shared_dataset.csv', index=False)
+    shared_dataset.to_csv('shared_dataset.csv', index=False)
 
 def compl_type(): # complication type label (multilabel), cohort includes patients that underwent tracheostomy and had complications
     LABEL_COLS_MULTILABEL = [
@@ -38,4 +38,4 @@ def compl_type(): # complication type label (multilabel), cohort includes patien
     print(shared_dataset.head())
     print(shared_dataset[LABEL_COLS_MULTILABEL].sum())
 
-    shared_dataset.to_csv('data_processed_12hrs/shared_dataset_multilabel.csv', index=False)
+    shared_dataset.to_csv('shared_dataset_multilabel.csv', index=False)
