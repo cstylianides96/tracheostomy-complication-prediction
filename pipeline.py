@@ -9,7 +9,7 @@ from explainability import plot_shap
 from explainability2 import plot_shap2
 
 
-def run_pipeline(hours_after_trach=24, model='XGB', df_name='agg_full', multilabel=False):
+def run_pipeline(hours_after_trach, model, df_name, multilabel):
     # Step 1: Create Cohort
     create_cohort()
     
@@ -37,4 +37,4 @@ def run_pipeline(hours_after_trach=24, model='XGB', df_name='agg_full', multilab
     plot_shap(model, df_name, hours_after_trach, multilabel)
     plot_shap2(model, df_name, hours_after_trach, multilabel)
 
-run_pipeline(hours_after_trach=12, model='RF', df_name='dyn_full', multilabel=False)
+run_pipeline(hours_after_trach=12, model='XGB', df_name='agg_flatten_full', multilabel=False)

@@ -5,9 +5,7 @@
 
 ### Aim
 
-The project addresses two outcomes:
-- complication status after Tracheostomy
-- complication type after Tracheostomy
+Investigating whether a patient will experience tracheostomy-related complications by the time of hospital discharge (1st outcome; paper) and the type of complication to be experienced (2nd outcome; not published) using 12-hour post-tracheostomy data (MIMIC-IV). The pipeline includes a sensitivity analysis using 24-hour data input and is supported by exlainability (SHAP). 
 
 ### System Specifications
 
