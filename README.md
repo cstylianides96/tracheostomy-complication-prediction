@@ -1,10 +1,20 @@
-**Project: PRECIOUS - Improving Personalized Medicine via AI-based Precision Tracheostomy**
-_______________________________________________________________________________________
+ # Explainable Complication Status Prediction After Tracheostomy Procedure
+
+ ### Paper
+ [accepted]
+
+### Aim
 
 The project addresses two outcomes:
 - complication status after Tracheostomy
 - complication type after Tracheostomy
 
+### System Specifications
+
+Data processing and experiments were conducted on a local workstation running Ubuntu 22.04.5 LTS with Linux kernel 6.8.0. The system was equipped with an Intel Core i9-12900K CPU (16 cores, 24 threads, up to 5.2 GHz) and 62 GB of RAM. Analyses were run on Python >= 3.10. 
+
+---------------------------------------------------
+### Steps to use this repository
 1. Install the required packages through the requirements.txt file.
 2. Create the *data_raw_mimic2.2* directory with raw mimic-IV v2.2. data.
 3. Create the following directories: 
