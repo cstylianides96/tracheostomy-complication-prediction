@@ -2,17 +2,7 @@
 
 import pandas as pd
 
-cohort = pd.read_csv('data_processed/cohort.csv')
-subjectids = cohort['subject_id'].tolist()
-hospids = cohort['hadm_id'].tolist()
-stayids = cohort['stay_id'].tolist()
-trachtimes = cohort['trach_time'].tolist()
-admtimes = cohort['intime'].tolist()
-distimes = cohort['outtime'].tolist()
-itemids = pd.read_csv('data_raw_mimic2.2/d_items.csv')
-
-
-def extract_chartevents():
+def extract_chartevents(stayids, trachtimes, admtimes, distimes, itemids):
     # Chartevents of tracheostomy patients
     chartevents = pd.read_csv('data_raw_mimic2.2/chartevents.csv.gz', compression='gzip', usecols=['stay_id', 'charttime', 'itemid', 'valuenum'])
     print('READ')
@@ -49,7 +39,7 @@ def extract_chartevents():
     trach_chart.to_csv('data_processed/trach_chartevents.csv', index=False)
 
 
-def extract_inputevents():
+def extract_inputevents(stayids, trachtimes, admtimes, distimes, itemids):
     # Drug Items
     inputevents = pd.read_csv('data_raw_mimic2.2/inputevents.csv', usecols=['stay_id', 'starttime', 'itemid', 'amount'])
     inputevents = inputevents[inputevents['stay_id'].isin(stayids)] 
@@ -87,7 +77,7 @@ def extract_inputevents():
     trach_drug.to_csv('data_processed/trach_inputevents.csv', index=False)
 
 # diag = #diagnoses = [Respiratory disease, Hypertension, COPD, Heart DIsease, Diabetes mellitus type II, Malignancy, Stroke, Immunosuppression]
-def extract_diagnoses():
+def extract_diagnoses(hospids):
     diagnoses = pd.read_csv('data_raw_mimic2.2/diagnoses_icd.csv')
     diagnoses = diagnoses[diagnoses['hadm_id'].isin(hospids)]
 
@@ -165,7 +155,7 @@ def extract_diagnoses():
     filtered_diags.to_csv('data_processed/trach_diagnoses.csv', index=False)
 
 
-def extract_demographics():
+def extract_demographics(cohort, stayids, itemids):
 
     # Age calculation
     age = pd.read_csv("data_raw_mimic2.2/patients.csv")[['subject_id', 'anchor_year', 'anchor_age', 'anchor_year_group', 'gender']]
@@ -199,8 +189,17 @@ def extract_demographics():
     demo = demo.drop_duplicates(subset=['stay_id'])
     demo.to_csv('data_processed/trach_demographics.csv', index=False)
 
+
 def extract_all_data():
-    extract_chartevents()
-    extract_inputevents()
-    extract_diagnoses()
-    extract_demographics()
+
+    cohort = pd.read_csv('data_processed/cohort.csv')
+    hospids = cohort['hadm_id'].tolist()
+    stayids = cohort['stay_id'].tolist()
+    trachtimes = cohort['trach_time'].tolist()
+    admtimes = cohort['intime'].tolist()
+    distimes = cohort['outtime'].tolist()
+    itemids = pd.read_csv('data_raw_mimic2.2/d_items.csv')
+    extract_chartevents(stayids, trachtimes, admtimes, distimes, itemids)
+    extract_inputevents(stayids, trachtimes, admtimes, distimes, itemids)
+    extract_diagnoses(hospids)
+    extract_demographics(cohort, stayids, itemids)

@@ -8,15 +8,15 @@ import matplotlib.pyplot as plt
 import joblib
 import shap 
 
-LABEL_COLS = [
+def plot_shap2(model_name, df_name, hours_after_trach, multilabel):
+
+    LABEL_COLS = [
     'complication_bleeding',
     'complication_infection',
     'complication_mechanical',
     'complication_other'
-]
+    ]
 
-
-def plot_shap2(model_name, df_name, hours_after_trach, multilabel):
     if multilabel:
         model = joblib.load('models_' + str(hours_after_trach) + 'hrs/' +  model_name + '_' + df_name + '_multilabel.pkl')
     else:

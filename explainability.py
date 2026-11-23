@@ -8,14 +8,6 @@ import joblib
 import shap
 
 
-LABEL_COLS = [
-    'complication_bleeding',
-    'complication_infection',
-    'complication_mechanical',
-    'complication_other'
-]
-
-
 def _get_model_features(model):
     if hasattr(model, 'feature_names_in_'):
         return model.feature_names_in_.tolist()
@@ -76,6 +68,14 @@ def _aggregate_by_group(shap_values, x_df, groups):
 
 
 def _load_data(df_name, hours_after_trach, multilabel):
+
+    LABEL_COLS = [
+    'complication_bleeding',
+    'complication_infection',
+    'complication_mechanical',
+    'complication_other'
+    ]
+
     if multilabel:
         df_train = pd.read_csv(f'data_processed_{hours_after_trach}hrs/{df_name}_train_selected_balanced_multilabel.csv')
         df_test = pd.read_csv(f'data_processed_{hours_after_trach}hrs/{df_name}_test_selected_multilabel.csv')
