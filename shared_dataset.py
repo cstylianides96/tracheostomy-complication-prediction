@@ -1,8 +1,10 @@
+# Author: Charithea Stylianides (c.stylianides@cyens.org.cy)
+
 import pandas as pd
 from data_preprocessing import impute
 from data_preprocessing_multilabel import impute as impute_multilabel
 
-# datasets after data engineering and imputation, before feature selection
+# datasets after data engineering and imputation (before any feature selection and balancing)
 
 def compl_status(): # complication status label (binary), cohort includes patients that underwent tracheostomy
     X_train, y_train, X_test, y_test = impute(12, 'agg_flatten_full')
@@ -14,7 +16,7 @@ def compl_status(): # complication status label (binary), cohort includes patien
     print(shared_dataset.head())
     print(shared_dataset.label.value_counts())
 
-    shared_dataset.to_csv('shared_dataset.csv', index=False)
+    shared_dataset.to_csv('data_processed_12hrs/shared_dataset.csv', index=False)
 
 def compl_type(): # complication type label (multilabel), cohort includes patients that underwent tracheostomy and had complications
     LABEL_COLS_MULTILABEL = [
@@ -38,4 +40,4 @@ def compl_type(): # complication type label (multilabel), cohort includes patien
     print(shared_dataset.head())
     print(shared_dataset[LABEL_COLS_MULTILABEL].sum())
 
-    shared_dataset.to_csv('shared_dataset_multilabel.csv', index=False)
+    shared_dataset.to_csv('data_processed_12hrs/shared_dataset_multilabel.csv', index=False)

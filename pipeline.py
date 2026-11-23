@@ -1,3 +1,5 @@
+# Author: Charithea Stylianides (c.stylianides@cyens.org.cy)
+
 from cohort_creation import create_cohort
 from data_extraction import extract_all_data
 from data_preprocessing import preprocess
