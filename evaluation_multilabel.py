@@ -1,3 +1,5 @@
+# Author: Charithea Stylianides (c.stylianides@cyens.org.cy)
+
 import numpy as np
 from sklearn.metrics import (
     accuracy_score, hamming_loss, jaccard_score, f1_score, 

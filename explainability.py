@@ -1,3 +1,5 @@
+# Author: Charithea Stylianides (c.stylianides@cyens.org.cy)
+
 # SHAP beeswarm plot - group aware - 1 plot per label for multilabel, for both train and test (8 plots for multilabel)
 import pandas as pd
 import numpy as np

@@ -1,3 +1,5 @@
+# Author: Charithea Stylianides (c.stylianides@cyens.org.cy)
+
 # SHAP beeswarm plot - not group aware (timestep-level) - 1 plot for test set (mean absolute SHAP values averaged across labels for each feature for multilabel)
 from xml.parsers.expat import model
 import pandas as pd
