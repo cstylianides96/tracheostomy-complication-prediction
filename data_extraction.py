@@ -1,6 +1,6 @@
+# Author: Charithea Stylianides (c.stylianides@cyens.org.cy)
+
 import pandas as pd
-
-
 
 cohort = pd.read_csv('data_processed/cohort.csv')
 subjectids = cohort['subject_id'].tolist()
