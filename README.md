@@ -13,18 +13,7 @@ Data processing and experiments were conducted on a local workstation running Ub
 
 ---------------------------------------------------
 
-### CSV and TXT files provided
-
-MIMIC-IV datasets as they were used in final models after processing are provided in the 'data_processed_12hrs' directory.
-
 *ICD9_to_ICD10_mapping.txt* is sourced from [Gupta et al.](https://proceedings.mlr.press/v193/gupta22a)
-
-Reusable MIMIC-IV datasets (*shared_dataset.csv*, *shared_dataset_multilabel.csv*) of the selected cohorts (concatenated train and test sets) after data engineering and imputation (before any feature selection and balancing) in their aggregated-flattened representation are provided for research purposes. 
-[cohort1 citation][cohort2 citation] 
-
-------------------------------------------------------
-
-### Models provided
 
 The final models for each outcome are provided in the 'models_12hrs' directory.
 
