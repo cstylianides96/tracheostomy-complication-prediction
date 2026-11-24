@@ -23,7 +23,7 @@ The final models for each outcome are provided in the 'models_12hrs' directory.
 1. Install the required packages through the requirements.txt file.
 2. Create the *data_raw_mimic2.2* directory with raw mimic-IV v2.2. data.
 3. Create the following directories: 
-    *data_processed*, *data_processed 24hrs*, 
+    *data_processed*, *data_processed_12hrs*, *data_processed 24hrs*, 
     *models_24hrs*, 
     *plots_12hrs*, *plots_24hrs*, 
     *predictions_12hrs*, *predictions_24hrs*, 
